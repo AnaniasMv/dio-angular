@@ -13,6 +13,13 @@ export class CourseService {
     retrieveById(id: number): Course | undefined {
         return COURSES.find((courseIteration: Course) => courseIteration.id === id);
     }
+
+    save(course: Course): void{
+        if(course.id){
+            const index = COURSES.findIndex((courseIteration:Course) => courseIteration.id === course.id);
+            COURSES[index] = course;
+        }
+    }
 }
 
 var COURSES: Course[] = [
