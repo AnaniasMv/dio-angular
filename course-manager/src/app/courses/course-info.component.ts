@@ -8,7 +8,7 @@ import { CourseService } from "./course.service";
 })
 
 export class CourseInfoComponent implements OnInit {
-    course: Course | undefined;
+    course: Course;
 
     constructor(private activatedRoute: ActivatedRoute, private courseService: CourseService) { }
 
@@ -20,7 +20,7 @@ export class CourseInfoComponent implements OnInit {
     }
 
     save(): void {
-        this.courseService.save(this.course!).subscribe({
+        this.courseService.save(this.course).subscribe({
             next: course => console.log('Saved with success', course),
             error: err => console.log('Error', err)
         });
